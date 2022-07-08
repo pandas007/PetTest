@@ -52,13 +52,7 @@ android {
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.8.0")
-    implementation("androidx.compose.ui:ui:$compose_version")
-    implementation("androidx.compose.material:material:$compose_version")
-    implementation("androidx.compose.ui:ui-tooling-preview:$compose_version")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.5.0")
-    implementation("androidx.activity:activity-compose:1.5.0")
-
-    debugImplementation ("androidx.compose.ui:ui-tooling:$compose_version")
-    debugImplementation ("androidx.compose.ui:ui-test-manifest:$compose_version")
+    implementation(Dependency.coreKtx)
+    implementation(Dependency.composeSet)
+    implementation(Dependency.lifecycleSet)
 }
