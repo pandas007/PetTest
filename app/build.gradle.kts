@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("dagger.hilt.android.plugin")
+    kotlin("kapt")
 }
 
 val compose_version = "1.1.1"
@@ -57,4 +59,8 @@ dependencies {
     implementation(Dependency.composeSet)
     implementation(Dependency.lifecycleSet)
     implementation(Dependency.jsoup)
+    implementation(Dependency.gson)
+    implementation(Dependency.retrofit)
+    implementation(Dependency.hilt)
+    kapt(Dependency.hiltCompiler)
 }

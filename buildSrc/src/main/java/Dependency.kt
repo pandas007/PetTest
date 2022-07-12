@@ -29,6 +29,17 @@ object Dependency {
     //jsoup
     const val jsoup = "org.jsoup:jsoup:${Versions.jsoup}"
 
+    //hilt
+    const val hilt = "com.google.dagger:hilt-android:${Versions.hilt}"
+    const val hiltCompiler = "com.google.dagger:hilt-android-compiler:${Versions.hilt}"
+
+    //retrofit
+    const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+
+    //gson
+    const val gson = "com.google.code.gson:gson:${Versions.gson}"
+
+
 }
 
 fun DependencyHandler.implementation(dependencies: Collection<String>) {
