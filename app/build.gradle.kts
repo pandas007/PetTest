@@ -45,7 +45,8 @@ android {
     }
     packagingOptions {
         resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            excludes += "META-INF/*"
+            excludes += "mozilla/public-suffix-list.txt"
         }
     }
 }
@@ -55,4 +56,5 @@ dependencies {
     implementation(Dependency.coreKtx)
     implementation(Dependency.composeSet)
     implementation(Dependency.lifecycleSet)
+    implementation(Dependency.jsoup)
 }

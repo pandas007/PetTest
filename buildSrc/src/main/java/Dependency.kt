@@ -10,14 +10,24 @@ object Dependency {
     const val composePreview = "androidx.compose.ui:ui-tooling-preview:${Versions.compose}"
     const val activityCompose = "androidx.activity:activity-compose:${Versions.activityCompose}"
     const val viewModelCompose = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.lifecycle}"
+    const val navigationCompose = "androidx.navigation:navigation-compose:${Versions.navigationCompose}"
     val composeSet = setOf(
-        composeUi, composeMaterial, composePreview, activityCompose, viewModelCompose
+        composeUi,
+        composeMaterial,
+        composePreview,
+        activityCompose,
+        viewModelCompose,
+        navigationCompose
     )
 
     //lifecycle
     const val lifecycle = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycle}"
-    const val lifecycleViewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
+    const val lifecycleViewModel =
+        "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
     val lifecycleSet = setOf(lifecycle, lifecycleViewModel)
+
+    //jsoup
+    const val jsoup = "org.jsoup:jsoup:${Versions.jsoup}"
 
 }
 
