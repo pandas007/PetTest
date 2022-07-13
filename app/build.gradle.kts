@@ -58,9 +58,9 @@ dependencies {
     implementation(Dependency.coreKtx)
     implementation(Dependency.composeSet)
     implementation(Dependency.lifecycleSet)
-    implementation(Dependency.jsoup)
     implementation(Dependency.gson)
-    implementation(Dependency.retrofit)
+    implementation(Dependency.retrofitSet)
+    implementation(Dependency.okhttpLogging)
     implementation(Dependency.hilt)
     kapt(Dependency.hiltCompiler)
 }

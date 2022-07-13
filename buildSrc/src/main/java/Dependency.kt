@@ -11,13 +11,15 @@ object Dependency {
     const val activityCompose = "androidx.activity:activity-compose:${Versions.activityCompose}"
     const val viewModelCompose = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.lifecycle}"
     const val navigationCompose = "androidx.navigation:navigation-compose:${Versions.navigationCompose}"
+    const val hiltNavigationCompose = "androidx.hilt:hilt-navigation-compose:${Versions.hiltNavigationCompose}"
     val composeSet = setOf(
         composeUi,
         composeMaterial,
         composePreview,
         activityCompose,
         viewModelCompose,
-        navigationCompose
+        navigationCompose,
+        hiltNavigationCompose
     )
 
     //lifecycle
@@ -26,15 +28,17 @@ object Dependency {
         "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
     val lifecycleSet = setOf(lifecycle, lifecycleViewModel)
 
-    //jsoup
-    const val jsoup = "org.jsoup:jsoup:${Versions.jsoup}"
-
     //hilt
     const val hilt = "com.google.dagger:hilt-android:${Versions.hilt}"
     const val hiltCompiler = "com.google.dagger:hilt-android-compiler:${Versions.hilt}"
 
     //retrofit
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+    const val retrofitConverter = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
+    val retrofitSet = setOf(retrofit, retrofitConverter)
+
+    //okhttp
+    const val okhttpLogging = "com.squareup.okhttp3:logging-interceptor:${Versions.okhttpLogging}"
 
     //gson
     const val gson = "com.google.code.gson:gson:${Versions.gson}"
