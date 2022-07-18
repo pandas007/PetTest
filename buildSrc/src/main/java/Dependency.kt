@@ -12,6 +12,7 @@ object Dependency {
     const val viewModelCompose = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.lifecycle}"
     const val navigationCompose = "androidx.navigation:navigation-compose:${Versions.navigationCompose}"
     const val hiltNavigationCompose = "androidx.hilt:hilt-navigation-compose:${Versions.hiltNavigationCompose}"
+    const val coilCompose = "io.coil-kt:coil-compose:${Versions.coilCompose}"
     val composeSet = setOf(
         composeUi,
         composeMaterial,
@@ -19,7 +20,8 @@ object Dependency {
         activityCompose,
         viewModelCompose,
         navigationCompose,
-        hiltNavigationCompose
+        hiltNavigationCompose,
+        coilCompose
     )
 
     //lifecycle
