@@ -9,9 +9,9 @@ abstract class BaseUseCase {
 
     @Inject
     @DispatcherIO
-    protected lateinit var io: CoroutineDispatcher
+    protected lateinit var dispatcherIO: CoroutineDispatcher
 
     @Inject
     @DispatcherDefault
-    protected lateinit var default: CoroutineDispatcher
+    protected lateinit var dispatcherDefault: CoroutineDispatcher
 }
