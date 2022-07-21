@@ -2,9 +2,9 @@ package com.pandasby.pettest.data
 
 import org.json.JSONObject
 
-object Extencions {
+object Extensions {
 
     fun String.toJson() = JSONObject(
-        this
+        this.trimIndent()
     )
 }
