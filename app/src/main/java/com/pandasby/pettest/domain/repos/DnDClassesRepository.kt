@@ -9,5 +9,5 @@ interface DnDClassesRepository {
 
     suspend fun getClassDetails(detailsUrl: String): DnDClassDetails
 
-    suspend fun getClassIdForSpells(spellsUrl: String): String
+    suspend fun getClassSpellsId(spellsUrl: String): String
 }

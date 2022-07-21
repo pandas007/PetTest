@@ -19,7 +19,7 @@ class DnDClassesRepositoryImpl @Inject constructor(
         service.fetchClassDetails(detailsUrl).toEntity()
 
     //Forgot about clean code in this func, no sense cause of backend. Should be in class details func, but it has not :(
-    override suspend fun getClassIdForSpells(spellsUrl: String): String =
+    override suspend fun getClassSpellsId(spellsUrl: String): String =
         service.getClassIdForSpells(spellsUrl)
             .other?.find { it.key == "class" }
             ?.values?.first()

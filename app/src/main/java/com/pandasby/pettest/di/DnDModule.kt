@@ -1,7 +1,9 @@
 package com.pandasby.pettest.di
 
 import com.pandasby.pettest.data.repos.DnDClassesRepositoryImpl
+import com.pandasby.pettest.data.repos.DnDSpellsRepositoryImpl
 import com.pandasby.pettest.domain.repos.DnDClassesRepository
+import com.pandasby.pettest.domain.repos.DnDSpellsRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -13,4 +15,7 @@ abstract class DnDModule {
 
     @Binds
     abstract fun bindClassesRepository(repo: DnDClassesRepositoryImpl): DnDClassesRepository
+
+    @Binds
+    abstract fun bindSpellsRepository(repository: DnDSpellsRepositoryImpl): DnDSpellsRepository
 }

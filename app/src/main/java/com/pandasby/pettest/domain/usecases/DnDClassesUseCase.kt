@@ -28,4 +28,8 @@ class DnDClassesUseCase @Inject constructor(
 
         return@withContext classes
     }
+
+    suspend fun getClassSpellsId(spellsUrl: String) = withContext(dispatcherIO) {
+        repository.getClassSpellsId(spellsUrl)
+    }
 }

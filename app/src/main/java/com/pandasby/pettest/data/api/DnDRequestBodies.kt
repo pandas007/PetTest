@@ -50,7 +50,7 @@ object DnDRequestBodies {
     }
 }"""
 
-    const val spellRequestBody = """{
+    fun createSpellRequestBody(classSpellsId: String) = """{
     "page": 0,
     "limit": 1000,
     "order": [
@@ -68,7 +68,7 @@ object DnDRequestBodies {
         "components": [],
         "school": [],
         "class": [
-            "1"
+            $classSpellsId
         ],
         "book": [
             "PHB",
