@@ -63,4 +63,6 @@ dependencies {
     implementation(Dependency.okhttpLogging)
     implementation(Dependency.hilt)
     kapt(Dependency.hiltCompiler)
+
+    debugImplementation(Dependency.composePreviewDebug)
 }
