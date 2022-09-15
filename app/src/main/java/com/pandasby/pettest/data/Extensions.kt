@@ -1,10 +1,9 @@
 package com.pandasby.pettest.data
 
-import org.json.JSONObject
+import com.google.gson.JsonParser
+
 
 object Extensions {
 
-    fun String.toJson() = JSONObject(
-        this.trimIndent()
-    )
+    fun String.toJson() = JsonParser.parseString(this.trimIndent()).asJsonObject
 }

@@ -16,9 +16,7 @@ class DnDSpellsRepositoryImpl @Inject constructor(
 
     override suspend fun getClassSpells(classSpellsId: String): List<DnDSpell> {
         val json = createSpellRequestBody(classSpellsId).toJson()
-        return service.fetchClassSpells(
-            json
-        ).map { it.toEntity() }
+        return service.fetchClassSpells(json).map { it.toEntity() }
     }
 
 }

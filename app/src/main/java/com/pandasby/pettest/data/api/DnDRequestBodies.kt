@@ -78,7 +78,7 @@ object DnDRequestBodies {
          
       ],
       "class":[
-         "$classSpellsId"
+         $classSpellsId
       ],
       "book":[
          "PHB",
