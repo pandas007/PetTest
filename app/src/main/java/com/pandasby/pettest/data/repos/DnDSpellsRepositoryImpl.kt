@@ -14,8 +14,11 @@ class DnDSpellsRepositoryImpl @Inject constructor(
     private val service: DnDService
 ) : DnDSpellsRepository {
 
-    override suspend fun getClassSpells(classSpellsId: String): List<DnDSpell> =
-        service.fetchClassSpells(
-            createSpellRequestBody(classSpellsId).toJson()
+    override suspend fun getClassSpells(classSpellsId: String): List<DnDSpell> {
+        val json = createSpellRequestBody(classSpellsId).toJson()
+        return service.fetchClassSpells(
+            json
         ).map { it.toEntity() }
+    }
+
 }

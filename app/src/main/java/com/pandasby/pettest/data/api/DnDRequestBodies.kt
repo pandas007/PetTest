@@ -51,36 +51,46 @@ object DnDRequestBodies {
 }"""
 
     fun createSpellRequestBody(classSpellsId: String) = """{
-    "page": 0,
-    "limit": 1000,
-    "order": [
-        {
-            "field": "level",
-            "direction": "asc"
-        },
-        {
-            "field": "name",
-            "direction": "asc"
-        }
-    ],
-    "filter": {
-        "level": [],
-        "components": [],
-        "school": [],
-        "class": [
-            $classSpellsId
-        ],
-        "book": [
-            "PHB",
-            "TCE",
-            "DMG",
-            "XGE",
-            "FTD",
-            "SCAG",
-            "GGR",
-            "EGtW",
-            "VRGR"
-        ]
-    }
+   "page":0,
+   "limit":70,
+   "search":{
+      "exact":false,
+      "value":""
+   },
+   "order":[
+      {
+         "field":"level",
+         "direction":"asc"
+      },
+      {
+         "field":"name",
+         "direction":"asc"
+      }
+   ],
+   "filter":{
+      "level":[
+         
+      ],
+      "components":[
+         
+      ],
+      "school":[
+         
+      ],
+      "class":[
+         "$classSpellsId"
+      ],
+      "book":[
+         "PHB",
+         "TCE",
+         "DMG",
+         "XGE",
+         "FTD",
+         "SCAG",
+         "GGR",
+         "EGtW",
+         "VRGR"
+      ]
+   }
 }"""
 }

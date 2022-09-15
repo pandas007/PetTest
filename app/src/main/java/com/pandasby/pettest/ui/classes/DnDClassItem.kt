@@ -1,6 +1,7 @@
 package com.pandasby.pettest.ui.classes
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
@@ -17,11 +18,12 @@ import coil.compose.AsyncImage
 import com.pandasby.pettest.domain.entities.DnDClass
 
 @Composable
-fun DnDClassItem(dndClass: DnDClass) {
+fun DnDClassItem(dndClass: DnDClass, onClick: (DnDClass) -> Unit) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .height(80.dp),
+            .height(80.dp)
+            .clickable { onClick(dndClass) },
         shape = RoundedCornerShape(16.dp),
     ) {
         AsyncImage(
