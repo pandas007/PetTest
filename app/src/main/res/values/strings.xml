@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">PetTest</string>
+    <string name="spell_level">lvl. %d</string>
 </resources>
