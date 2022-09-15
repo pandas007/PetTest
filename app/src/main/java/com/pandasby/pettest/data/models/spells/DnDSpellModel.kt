@@ -12,7 +12,7 @@ data class DnDSpellModel(
     data class DnDSpellComponentsModel(
         @SerializedName("s") val s: Boolean?,
         @SerializedName("v") val v: Boolean?,
-        @SerializedName("m") val m: Boolean?,
+        @SerializedName("m") val m: String?,
     )
 
     data class DnDSpellNameModel(
