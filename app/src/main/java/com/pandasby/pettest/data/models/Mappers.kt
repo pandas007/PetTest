@@ -44,7 +44,7 @@ object Mappers {
         val components = mutableListOf<DnDSpellComponent>()
         if (model.v == true) components.add(DnDSpellComponent.VERBAL)
         if (model.s == true) components.add(DnDSpellComponent.SOMATIC)
-        if (model.m == true) components.add(DnDSpellComponent.MATERIAL)
+        if (!model.m.isNullOrEmpty()) components.add(DnDSpellComponent.MATERIAL)
 
         return components
     }
