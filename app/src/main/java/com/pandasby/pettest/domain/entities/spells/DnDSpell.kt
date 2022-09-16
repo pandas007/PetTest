@@ -6,5 +6,6 @@ data class DnDSpell(
     val level: Int,
     val components: List<DnDSpellComponent>,
     val source: String,
-    val detailsUrl: String
+    val detailsUrl: String,
+    var details: DnDSpellDetails? = null
 )

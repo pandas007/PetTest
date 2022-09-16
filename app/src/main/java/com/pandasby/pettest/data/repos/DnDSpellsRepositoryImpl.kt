@@ -5,6 +5,7 @@ import com.pandasby.pettest.data.api.DnDRequestBodies.createSpellRequestBody
 import com.pandasby.pettest.data.api.DnDService
 import com.pandasby.pettest.data.models.Mappers.toEntity
 import com.pandasby.pettest.domain.entities.spells.DnDSpell
+import com.pandasby.pettest.domain.entities.spells.DnDSpellDetails
 import com.pandasby.pettest.domain.repos.DnDSpellsRepository
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -19,4 +20,6 @@ class DnDSpellsRepositoryImpl @Inject constructor(
         return service.fetchClassSpells(json).map { it.toEntity() }
     }
 
+    override suspend fun getSpellDetails(detailsUrl: String): DnDSpellDetails =
+        service.fetchSpellDetails(detailsUrl).toEntity()
 }

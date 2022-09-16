@@ -52,7 +52,7 @@ object DnDRequestBodies {
 
     fun createSpellRequestBody(classSpellsId: String) = """{
    "page":0,
-   "limit":70,
+   "limit":1000,
    "search":{
       "exact":false,
       "value":""
