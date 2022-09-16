@@ -42,7 +42,7 @@ fun DnDSpellItem(spell: DnDSpell) {
                     fontStyle = FontStyle.Italic
                 )
                 Text(
-                    text = spell.components.map { it.name.first() }.joinToString(" "),
+                    text = spell.components.map { it.symbol }.joinToString(" "),
                     modifier = Modifier
                         .fillMaxWidth()
                         .align(Alignment.Bottom),
@@ -65,9 +65,9 @@ fun DnDSpellItemPreview() {
             nameEng = "Magic hand",
             level = 0,
             components = listOf(
-                DnDSpellComponent.VERBAL,
-                DnDSpellComponent.SOMATIC,
-                DnDSpellComponent.MATERIAL
+                DnDSpellComponent.Verbal,
+                DnDSpellComponent.Somatic,
+                DnDSpellComponent.Material("Player's hand")
             ),
             source = "PHB",
             detailsUrl = ""

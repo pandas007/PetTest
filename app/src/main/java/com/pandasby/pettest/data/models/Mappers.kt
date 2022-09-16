@@ -1,11 +1,13 @@
 package com.pandasby.pettest.data.models
 
+import com.pandasby.pettest.data.models.spells.DnDSpellDetailsModel
 import com.pandasby.pettest.data.models.spells.DnDSpellModel
 import com.pandasby.pettest.domain.entities.DnDClass
 import com.pandasby.pettest.domain.entities.DnDClassDetails
 import com.pandasby.pettest.domain.entities.DnDClassTab
 import com.pandasby.pettest.domain.entities.spells.DnDSpell
 import com.pandasby.pettest.domain.entities.spells.DnDSpellComponent
+import com.pandasby.pettest.domain.entities.spells.DnDSpellDetails
 
 object Mappers {
 
@@ -38,13 +40,22 @@ object Mappers {
             detailsUrl = this.url.orEmpty()
         )
 
+    fun DnDSpellDetailsModel.toEntity() =
+        DnDSpellDetails(
+            description = this.description.orEmpty(),
+            time = this.time.orEmpty(),
+            range = this.range.orEmpty(),
+            duration = this.duration.orEmpty(),
+            url = this.url.orEmpty()
+        )
+
     private fun mapSpellComponents(model: DnDSpellModel.DnDSpellComponentsModel?): List<DnDSpellComponent> {
         if (model == null) return emptyList()
 
         val components = mutableListOf<DnDSpellComponent>()
-        if (model.v == true) components.add(DnDSpellComponent.VERBAL)
-        if (model.s == true) components.add(DnDSpellComponent.SOMATIC)
-        if (!model.m.isNullOrEmpty()) components.add(DnDSpellComponent.MATERIAL)
+        if (model.v == true) components.add(DnDSpellComponent.Verbal)
+        if (model.s == true) components.add(DnDSpellComponent.Somatic)
+        if (!model.m.isNullOrEmpty()) components.add(DnDSpellComponent.Material(model.m))
 
         return components
     }
