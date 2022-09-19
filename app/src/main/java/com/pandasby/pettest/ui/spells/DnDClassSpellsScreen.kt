@@ -22,7 +22,7 @@ fun DnDClassSpellsScreen(spellsUrl: String) {
     viewModel.getClassSpells(spellsUrl)
 
     LazyColumn(
-        modifier = Modifier.padding(horizontal = 16.dp),
+        modifier = Modifier.padding(horizontal = 8.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp),
         contentPadding = PaddingValues(vertical = 8.dp)
     ) {

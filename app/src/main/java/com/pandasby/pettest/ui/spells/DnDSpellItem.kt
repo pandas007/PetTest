@@ -1,11 +1,19 @@
 package com.pandasby.pettest.ui.spells
 
+import androidx.compose.animation.*
+import androidx.compose.animation.core.tween
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -17,13 +25,31 @@ import androidx.compose.ui.unit.sp
 import com.pandasby.pettest.R
 import com.pandasby.pettest.domain.entities.spells.DnDSpell
 import com.pandasby.pettest.domain.entities.spells.DnDSpellComponent
+import com.pandasby.pettest.domain.entities.spells.DnDSpellDetails
+import com.pandasby.pettest.ui.common.TextTitleDescriptionCell
 
 @Composable
 fun DnDSpellItem(spell: DnDSpell) {
+    var expanded by remember { mutableStateOf(false) }
+    val borderColorAnimated by animateColorAsState(
+        targetValue = if (expanded) Color.Blue else Color.Transparent,
+        animationSpec = tween(600)
+    )
+
     Card(
         modifier = Modifier
             .fillMaxWidth()
             .wrapContentHeight()
+            .clickable(
+                interactionSource = MutableInteractionSource(),
+                indication = null
+            ) { expanded = !expanded }
+            .border(
+                width = 1.dp,
+                shape = RoundedCornerShape(4.dp),
+                color = borderColorAnimated
+            )
+            .shadow(4.dp)
     ) {
         Column(modifier = Modifier.padding(4.dp)) {
             Row {
@@ -51,8 +77,34 @@ fun DnDSpellItem(spell: DnDSpell) {
                     fontSize = 10.sp
                 )
             }
-
+            spell.details?.let {
+                AnimatedVisibility(visible = expanded) {
+                    DnDSpellItemDetails(dnDSpellDetails = it, modifier = Modifier.fillMaxWidth())
+                }
+            }
         }
+    }
+}
+
+@Composable
+fun DnDSpellItemDetails(dnDSpellDetails: DnDSpellDetails, modifier: Modifier = Modifier) {
+    Column(modifier = modifier.clickable(enabled = false) {}) {
+        TextTitleDescriptionCell(
+            title = "Время накладывания",
+            description = dnDSpellDetails.time
+        )
+        TextTitleDescriptionCell(
+            title = "Дистанция",
+            description = dnDSpellDetails.range
+        )
+        TextTitleDescriptionCell(
+            title = "Длительность",
+            description = dnDSpellDetails.duration
+        )
+        TextTitleDescriptionCell(
+            title = "Описание",
+            description = dnDSpellDetails.description
+        )
     }
 }
 
@@ -70,7 +122,14 @@ fun DnDSpellItemPreview() {
                 DnDSpellComponent.Material("Player's hand")
             ),
             source = "PHB",
-            detailsUrl = ""
+            detailsUrl = "",
+            details = DnDSpellDetails(
+                description = "Крутое заклинание, которое что-то делает супер магическое",
+                time = "1 действие",
+                range = "60 футов",
+                duration = "10 минут",
+                url = ""
+            )
         )
     )
 }
