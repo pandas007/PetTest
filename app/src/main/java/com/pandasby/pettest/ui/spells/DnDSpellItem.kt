@@ -26,6 +26,7 @@ import com.pandasby.pettest.R
 import com.pandasby.pettest.domain.entities.spells.DnDSpell
 import com.pandasby.pettest.domain.entities.spells.DnDSpellComponent
 import com.pandasby.pettest.domain.entities.spells.DnDSpellDetails
+import com.pandasby.pettest.ui.common.HtmlText
 import com.pandasby.pettest.ui.common.TextTitleDescriptionCell
 
 @Composable
@@ -101,10 +102,7 @@ fun DnDSpellItemDetails(dnDSpellDetails: DnDSpellDetails, modifier: Modifier = M
             title = "Длительность",
             description = dnDSpellDetails.duration
         )
-        TextTitleDescriptionCell(
-            title = "Описание",
-            description = dnDSpellDetails.description
-        )
+        HtmlText(dnDSpellDetails.description)
     }
 }
 

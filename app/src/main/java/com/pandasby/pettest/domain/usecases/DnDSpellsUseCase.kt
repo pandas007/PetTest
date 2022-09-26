@@ -21,14 +21,23 @@ class DnDSpellsUseCase @Inject constructor(
         }.awaitAll()
         withContext(dispatcherDefault) {
             spells.forEach { spell ->
-                spell.details = spellDetailsList.find { it.url == spell.detailsUrl }
+                spell.details = spellDetailsList
+                    .find { it.url == spell.detailsUrl }?.removeCustomHtmlTags()
             }
         }
         //endregion
         return@withContext spells
     }
 
-    private suspend fun getClassSpellDetails(detailsUrl: String): DnDSpellDetails = withContext(dispatcherIO) {
-        repository.getSpellDetails(detailsUrl)
+    private suspend fun getClassSpellDetails(detailsUrl: String): DnDSpellDetails =
+        withContext(dispatcherIO) {
+            repository.getSpellDetails(detailsUrl)
+        }
+
+    /**
+     * Remove custom tags before parse html text to simple text
+     */
+    private fun DnDSpellDetails.removeCustomHtmlTags() = apply {
+        description = description.replace("<dice-roller formula=\"|\"/>".toRegex(), "")
     }
 }
