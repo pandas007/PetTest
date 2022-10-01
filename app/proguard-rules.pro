@@ -19,3 +19,9 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+-printusage
+
+-keep class com.pandasby.pettest.data.models.** { *; }
+-keep class com.pandasby.pettest.di.DispatcherDefault
+-keep class com.pandasby.pettest.di.DispatcherIO
+-keep class com.pandasby.pettest.di.DispatcherMain
