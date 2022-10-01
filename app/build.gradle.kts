@@ -1,11 +1,11 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id("dagger.hilt.android.plugin")
+    id("com.google.dagger.hilt.android")
     kotlin("kapt")
 }
 
-val compose_version = "1.1.1"
+val compose_version = "1.3.1"
 
 android {
     compileSdk = 32
@@ -44,12 +44,6 @@ android {
     }
     composeOptions {
         kotlinCompilerExtensionVersion = compose_version
-    }
-    packagingOptions {
-        resources {
-            excludes += "META-INF/*"
-            excludes += "mozilla/public-suffix-list.txt"
-        }
     }
 }
 
