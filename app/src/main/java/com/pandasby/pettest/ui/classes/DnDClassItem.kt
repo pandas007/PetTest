@@ -1,10 +1,10 @@
 package com.pandasby.pettest.ui.classes
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -17,14 +17,15 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.pandasby.pettest.domain.entities.DnDClass
 
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun DnDClassItem(dndClass: DnDClass, onClick: (DnDClass) -> Unit) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .height(80.dp)
-            .clickable { onClick(dndClass) },
+            .height(80.dp),
         shape = RoundedCornerShape(16.dp),
+        onClick = { onClick(dndClass) }
     ) {
         AsyncImage(
             model = dndClass.imageUrl,
