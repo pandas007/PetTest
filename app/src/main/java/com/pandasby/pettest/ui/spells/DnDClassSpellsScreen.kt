@@ -15,8 +15,7 @@ const val DND_CLASS_SPELLS_ID_ARG = "DND_CLASS_SPELLS_ID_ARG"
 const val DND_CLASSES_SPELLS_SCREEN = "DND_CLASSES_SPELLS_SCREEN"
 
 @Composable
-fun DnDClassSpellsScreen(spellsUrl: String) {
-    val viewModel: DnDClassSpellsViewModel = hiltViewModel()
+fun DnDClassSpellsScreen(spellsUrl: String, viewModel: DnDClassSpellsViewModel = hiltViewModel()) {
     val spells = viewModel.spells.collectAsState(initial = emptyList())
 
     viewModel.getClassSpells(spellsUrl)
@@ -26,7 +25,10 @@ fun DnDClassSpellsScreen(spellsUrl: String) {
         verticalArrangement = Arrangement.spacedBy(8.dp),
         contentPadding = PaddingValues(vertical = 8.dp)
     ) {
-        items(spells.value) {
+        items(
+            items = spells.value,
+            key = { it.nameRus }
+        ) {
             DnDSpellItem(it)
         }
     }

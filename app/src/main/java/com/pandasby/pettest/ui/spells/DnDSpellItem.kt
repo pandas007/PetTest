@@ -10,6 +10,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
@@ -31,7 +32,7 @@ import com.pandasby.pettest.ui.common.TextTitleDescriptionCell
 
 @Composable
 fun DnDSpellItem(spell: DnDSpell) {
-    var expanded by remember { mutableStateOf(false) }
+    var expanded by rememberSaveable { mutableStateOf(false) }
     val borderColorAnimated by animateColorAsState(
         targetValue = if (expanded) Color.Blue else Color.Transparent,
         animationSpec = tween(600)

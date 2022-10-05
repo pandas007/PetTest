@@ -19,8 +19,7 @@ import java.nio.charset.StandardCharsets
 const val DND_CLASSES_SCREEN = "DND_CLASSES_SCREEN"
 
 @Composable
-fun DnDClassesScreen(navController: NavController) {
-    val viewModel: DnDClassesViewModel = hiltViewModel()
+fun DnDClassesScreen(navController: NavController, viewModel: DnDClassesViewModel = hiltViewModel()) {
     val classes = viewModel.classes.collectAsState(initial = emptyList())
 
     LazyColumn(
