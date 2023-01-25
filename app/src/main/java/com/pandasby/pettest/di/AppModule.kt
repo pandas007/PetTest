@@ -2,7 +2,6 @@ package com.pandasby.pettest.di
 
 import com.pandasby.pettest.BuildConfig
 import com.pandasby.pettest.Constants.BASE_URL
-import com.pandasby.pettest.data.api.DnDService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
