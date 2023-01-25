@@ -5,15 +5,15 @@ plugins {
     kotlin("kapt")
 }
 
-val compose_version = "1.3.1"
+val compose_version = "1.4.0"
 
 android {
-    compileSdk = 32
+    compileSdk = 33
 
     defaultConfig {
         applicationId = "com.pandasby.pettest"
         minSdk = 23
-        targetSdk = 32
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
 
@@ -56,7 +56,10 @@ dependencies {
     implementation(Dependency.retrofitSet)
     implementation(Dependency.okhttpLogging)
     implementation(Dependency.hilt)
+    implementation(Dependency.room)
+
     kapt(Dependency.hiltCompiler)
+    kapt(Dependency.roomCompiler)
 
     debugImplementation(Dependency.composePreviewDebug)
 }

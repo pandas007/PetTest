@@ -46,6 +46,10 @@ object Dependency {
     //gson
     const val gson = "com.google.code.gson:gson:${Versions.gson}"
 
+    //room
+    const val room = "androidx.room:room-runtime:${Versions.room}"
+    const val roomCompiler = "androidx.room:room-compiler:${Versions.room}"
+
 
 }
 
